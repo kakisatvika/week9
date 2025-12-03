@@ -7,6 +7,11 @@ pipeline {
                 bat "docker build -t kubdemoapp:v1 ."
             }
         }
+        stage('Docker Login') {
+            steps {
+                  bat 'docker login'
+                }
+            }
         
         stage('push Docker Image to Docker Hub') {
             steps {
